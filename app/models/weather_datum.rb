@@ -1,7 +1,7 @@
 class WeatherDatum < ApplicationRecord
 
   before_validation :round_datetime
-  validates :datetime, uniquenessexit: true
+  validates :datetime, uniqueness: true
 
   scope :get_history, -> { where(datetime: 24.hours.ago.beginning_of_hour..DateTime.now.beginning_of_hour).order(datetime: :desc) }
 
